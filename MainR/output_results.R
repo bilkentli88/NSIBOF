@@ -1,0 +1,5 @@
+library(dplyr)
+output <- read_csv("output.csv")
+output_grouped <- group_by(output,main_dataset_name,width_of_intervals_list)
+output_with_avg <- summarize(output_grouped,avg_error_rate=mean(test_error_rate_mean))
+print(output_with_avg)
